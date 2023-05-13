@@ -8,4 +8,6 @@ import java.util.List;
 public interface GuestServiceDAO {
     void createNewUser(User user);
     List<Post> readAllPublicPosts();
+
+    List<User> readAllUsers();
 }

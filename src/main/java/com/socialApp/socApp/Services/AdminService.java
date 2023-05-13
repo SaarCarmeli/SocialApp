@@ -2,28 +2,33 @@ package com.socialApp.socApp.Services;
 
 import com.socialApp.socApp.Beans.Post;
 import com.socialApp.socApp.Beans.User;
+import com.socialApp.socApp.Repositories.PostRepository;
+import com.socialApp.socApp.Repositories.UserRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
-import java.util.List;
-
+@Service
+@RequiredArgsConstructor
 public class AdminService implements AdminServiceDAO {
-    @Override
-    public User readUserById(int id) {
-        return null;
-    }
-
-    @Override
-    public List<User> readAllUsers() {
-        return null;
-    }
+    private final UserRepository userRepository;
+    private final PostRepository postRepository;
 
     @Override
     public void updateUser(User user) {
+        if (userRepository.existsById(user.getId())) {
+            userRepository.save(user);
+        } else {
 
+        }
     }
 
     @Override
     public void deleteUserById(int id) {
+        if (userRepository.existsById(id)) {
+            userRepository.deleteById(id);
+        } else {
 
+        }
     }
 
     @Override
@@ -32,27 +37,20 @@ public class AdminService implements AdminServiceDAO {
     }
 
     @Override
-    public Post readPublicPostById(int id) {
-        return null;
+    public void updatePost(Post post) {
+        if (postRepository.existsById(post.getId())) {
+            postRepository.save(post);
+        } else {
+
+        }
     }
 
     @Override
-    public List<Post> readAllPublicPosts() {
-        return null;
-    }
+    public void deletePostById(int id) {
+        if (postRepository.existsById(id)) {
+            postRepository.deleteById(id);
+        } else {
 
-    @Override
-    public List<Post> readAllAdminPosts() {
-        return null;
-    }
-
-    @Override
-    public void deletePublicPostById(int id) {
-
-    }
-
-    @Override
-    public void deleteAdminPostById(int id) {
-
+        }
     }
 }
