@@ -9,12 +9,12 @@ import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
-@Table(name = "posts")
+@Table(name = "chat_posts")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class Post {
+public class ChatPost {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "post_id")

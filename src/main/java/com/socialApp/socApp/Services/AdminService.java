@@ -1,8 +1,8 @@
 package com.socialApp.socApp.Services;
 
-import com.socialApp.socApp.Beans.Post;
+import com.socialApp.socApp.Beans.ChatPost;
 import com.socialApp.socApp.Beans.User;
-import com.socialApp.socApp.Repositories.PostRepository;
+import com.socialApp.socApp.Repositories.ChatPostRepository;
 import com.socialApp.socApp.Repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class AdminService implements AdminServiceDAO {
     private final UserRepository userRepository;
-    private final PostRepository postRepository;
+    private final ChatPostRepository chatPostRepository;
 
     @Override
     public void updateUser(User user) {
@@ -32,23 +32,23 @@ public class AdminService implements AdminServiceDAO {
     }
 
     @Override
-    public void createPost(Post post) {
+    public void createChatPost(ChatPost chatPost) {
 
     }
 
     @Override
-    public void updatePost(Post post) {
-        if (postRepository.existsById(post.getId())) {
-            postRepository.save(post);
+    public void updateChatPost(ChatPost chatPost) {
+        if (chatPostRepository.existsById(chatPost.getId())) {
+            chatPostRepository.save(chatPost);
         } else {
 
         }
     }
 
     @Override
-    public void deletePostById(int id) {
-        if (postRepository.existsById(id)) {
-            postRepository.deleteById(id);
+    public void deleteChatPostById(int id) {
+        if (chatPostRepository.existsById(id)) {
+            chatPostRepository.deleteById(id);
         } else {
 
         }

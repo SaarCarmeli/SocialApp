@@ -33,5 +33,5 @@ public class User {
     @Column(nullable = false)
     private Date lastLogin;
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
-    private List<Post> posts;
+    private List<ChatPost> chatPosts;
 }
